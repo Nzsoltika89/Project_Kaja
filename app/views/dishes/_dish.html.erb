@@ -1,7 +1,10 @@
 <div class="col-md-4">
 	
 <div class="border" style=" outline: 1px groove #010;">
-
+	<div align="center">	
+			<%= image_tag dish.logo.url(:medium), width: 380, height: 380 %>
+	</div>
+<hr>
   <h3><%=link_to dish.name, dish_path(dish.id) %></h3>
 
 <p><%= dish.description %></p>
