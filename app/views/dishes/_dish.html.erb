@@ -1,0 +1,16 @@
+<div class="col-md-4">
+<div class="my-container">
+	
+
+	<div align="center">	
+			<%= image_tag dish.logo.url(:medium), width: 380, height: 380 %>
+	</div>
+<hr>
+  <h3 style="text-align: center; text-decoration: none;"><%=link_to dish.name, dish_path(dish.id) %></h3>
+
+<p><%= dish.description %></p>
+
+
+
+</div>
+</div>

@@ -1,0 +1,40 @@
+<h1 align="center"><%= @dish.name %></h1>
+	<div align="center">	
+			<%= image_tag @dish.logo.url(:medium), width: 380, height: 380 %>
+	</div>
+	<hr>
+      <div class="col-md-12" style="text-align: justify;">
+        <p>Опис: <%=@dish.description %></p>
+        <%= @dish.receipt%>
+      </div>
+      price : <%= @dish.price%>
+    <hr>
+      <% @comments.each do |comment|%>
+      <p><%= image_tag comment.user.avatar.url(:thumb), width: 60, height: 60 %> |
+  
+     User: <%= comment.user.email %> </p>
+    <p><%=comment.texofcom%></p>
+    <p style="text-align: right;">Create at: <%= comment.created_at %></p><hr>
+    <%end%>
+
+    <div class="col-md-12">
+              
+            
+    </div>
+    <%= form_for :dishcomment, url: dish_dishcomments_path(@dish.id) do |dish| %>
+
+    <% if flash[:notice] %>
+      <div class="notice"> <%= flash[:notice] %> </div>
+    <% end %>
+    <div align="center">
+    <p><%= dish.label "Залишити відгук" %></p>
+    <%= dish.text_area :texofcom, cols: 60, rows: 5 %><br />
+    <br/>
+    <p><%= dish.submit "Send", class: "btn btn-primary active"%></p><br/>
+    </div>
+    <%end%>
+    </div>
+  
+  </div>
+
+</div>

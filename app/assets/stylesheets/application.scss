@@ -15,3 +15,18 @@
  @import "bootstrap-sprockets";
 @import "bootstrap";
  */
+  .my-container{
+        max-width: 600px!important;
+        width: auto;
+        color: #ffffff;
+        align-content: center;
+        /*margin-top: 55px;*/
+        /*background-color: red;*/
+        /*margin-bottom: 60px;*/
+        border: 2px solid white;
+        border-radius: 7px; 
+        padding: 20px;
+        background-color: rgba(0,0,0, 0.5);
+        /*opacity: 0.5;*/
+        /*margin-bottom: 24px;*/
+}
