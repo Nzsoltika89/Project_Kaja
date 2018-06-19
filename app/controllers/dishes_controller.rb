@@ -23,7 +23,8 @@ class DishesController < ApplicationController
 end
 
 
-  def show
+ def show
+    @comments = Dishcomment.where(dish_id: @dish.id)
   end
 
   def category
