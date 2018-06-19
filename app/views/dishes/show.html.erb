@@ -1,0 +1,10 @@
+<h1 align="center"><%= @dish.name %></h1>
+	<div align="center">	
+			<%= image_tag @dish.logo.url(:medium), width: 380, height: 380 %>
+	</div>
+	<hr>
+      <div class="col-md-12" style="text-align: justify;">
+        <p>Опис: <%=@dish.description %></p>
+        <%= @dish.receipt%>
+      </div>
+      price : <%= @dish.price%>

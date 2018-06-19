@@ -10,24 +10,17 @@ class DishesController < ApplicationController
     @dish = Dish.new
   end
 
-# def create
-#   @dish = Dish.new(dish_params)
-#    if @dish.save
-#      redirect_to root
-#    else
-#      render :new
-#    end
-#end
-
-   def create
-     params[:dish][:category_id]=params[:category_id]
-     @dish = current_user.dishes.build(dish_params)
+  def create
+    if current_user.role == "Editor"
+      params[:dish][:category_id] = params[:category_id]
+      @dish = current_user.dishes.build(dish_params)
     if @dish.save
-     redirect_to root_path
+      redirect_to root_path
     else
-     render :new
+      render 'new'
     end
-   end
+  end
+end
 
 
   def show
@@ -41,13 +34,13 @@ class DishesController < ApplicationController
 
   private
 
-  def set_dish
-    @dish=Dish.find(params[:id])
-  end
-
   
   def dish_params
-    params.require(:dish).permit(:name, :description, :receipt, :price, :user_id, :category_id)
+    params.require(:dish).permit(:name, :description, :receipt, :price, :user_id, :category_id, :logo)
+  end
+
+  def set_dish
+    @dish=Dish.find(params[:id])
   end
 
 end
